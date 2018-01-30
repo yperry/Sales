@@ -1,24 +1,21 @@
 package inheritance
 
-class Customer (val firstName: String, val lastName : String){
+class Customer(val firstName: String, val lastName: String) {
   val id: Int = Customer.nextId
   val shoppingBasket = new ShoppingBasket(10)
-
-  def total = {
-  }
 
   def addItem(item: Item) = {
     shoppingBasket.add(item)
   }
 
   def total: Double = {
-    shoppingBasket.items
+    shoppingBasket.items.map(_.price).sum
   }
 }
 
 // Singleton.
 // Usually for functions (methods that do not depend class fields) or factory
-object Customer{
+object Customer {
   private var _id = 0
 
   def nextId = {
@@ -26,7 +23,7 @@ object Customer{
     _id
   }
 
-  def apply(firstName: String, lastName : String): Unit ={
+  def apply(firstName: String, lastName: String): Unit = {
     new Customer(firstName, lastName)
   }
 }
