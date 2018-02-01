@@ -1,6 +1,6 @@
 package inheritance
 
-class Runner {
+object Runner {
   def main(args: Array[String]): Unit = {
     val greg = new Customer("Greg", "deGreg")
     val mark = new DiscountedCustomer("Mark", "deMark")
